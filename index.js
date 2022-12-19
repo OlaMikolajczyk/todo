@@ -1,7 +1,19 @@
 const incompleteTasks = document.getElementById("incomplete-tasks");
 const completedTasks = document.getElementById("completed-tasks");
 const addButton = document.getElementById("add-button");
-const editButton = document.getElementsByClassName("edit")[0];
+const editButton = document.createElement("button");
+editButton.classList.add("edit");
+editButton.innerText = "Edit";
+
+const todoItems = [
+  {
+    id: 1,
+    name: "Learn React",
+    isCompleted: false,
+  },
+];
+
+localStorage.setItem("todoItems", JSON.stringify(todoItems));
 
 addButton.addEventListener("click", () => {
   const newTaskName = document.getElementById("new-task").value;
